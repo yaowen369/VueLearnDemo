@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片选择器</title>
+
+    <style>
+        p {
+            font-size: 14px;
+        }
+
+        p img {
+            width: 100px;
+        }
+
+        #allContent {
+            width: 312px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 200px;
+            border: 1px solid red;
+        }
+
+        #picture {
+            position: relative;
+        }
+
+        #bgImg {
+            z-index: 0;
+        }
+
+        #leftArrow {
+            position: absolute;
+            left: 0px;
+            top: 87px;
+            z-index: 1;
+        }
+
+        #rightArrow {
+            position: absolute;
+            top: 87px;
+            left: 288px;
+            z-index: 1;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div id="allContent">
+        <p>
+            <img src="http://www.itheima.com/images/logo.png">
+            这是一个图片选择器
+        </p>
+
+        <div id="picture">
+            <img id="bgImg"  :src="imageArr[index]">
+            <img id="leftArrow"  v-show="index!=0"  @click="prev" src="./img/left_arrow.png">
+            <img id="rightArrow" v-show="index<imageArr.length-1"  @click="next" src="./img/right_arrow.png">
+        </div>
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+    <script>
+     var tmpVar = new Vue({
+            el:"#allContent",
+            data:{
+                imageArr:[
+                        "./img/iamge_0.png",
+                        "./img/iamge_1.png",
+                        "./img/iamge_2.png",
+                        "./img/iamge_3.png",
+                        "./img/iamge_4.png",
+                        "./img/iamge_5.png",
+                        "./img/iamge_6.png",
+                        "./img/iamge_7.png",
+                        "./img/iamge_8.png",
+                        "./img/iamge_9.png",
+                        "./img/iamge_10.png",
+                        ],
+                index: 0
+            },
+
+            methods:{
+                prev:function(){
+                    console.log("点击 prev");
+                    this.index--;
+                    if (this.index<=0){
+                        this.index = 0;
+                    }
+                },
+                next:function(){
+                    console.log("点击 next");
+                    this.index++;
+                    if (this.index>=this.imageArr.length){
+                        this.index--;
+                    }
+                }
+            }
+     });
+    
+    </script>
+</body>
+
+</html>s

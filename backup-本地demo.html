@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE基础</title>
+    <style>
+        .active{
+            border: 1px solid red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app">
+       <h1>这是测试 v-bind</h1>
+       <img v-bind:src="imgSrc" alt="第一个">
+       <br>
+       <img :src="imgSrc" alt="第二个" :title="imageTitle+'--后缀'" :class="{active:isActive}"  @click="toggleActive">
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        var tmpVar = new Vue({
+            el: "#app",
+
+            data: {
+                imgSrc:"http://www.itheima.com/images/logo.png",
+                imageTitle:"data中的title",
+                isActive:false
+            },
+            methods: {
+               toggleActive:function(){
+                   console.log("点中了方法")
+                   this.isActive = !this.isActive;
+               }
+            }
+        })
+    </script>
+</body>
+
+</html>
