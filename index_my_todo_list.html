@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="text/css" rel="stylesheet" href="./css/my_css_todo_list.css">
+    <title>记事本</title>
+</head>
+
+
+ <!-- TODO 什么时候用 , ; -->
+<body>
+
+    <div id="all-content">
+        <header>小黑记事本</header>
+        <div id="app">
+            <input type="text" value="请输入你的计划" v-model="inputVal" placeholder="请输入你的计划" @keyup.enter="inputEnter">
+            <div id="itemContent" v-for="(item, index) in dataArr"  @mouseover="mouseOver(index)"   @mouseout="mouseOut(index)">
+                <img src="./img/close.png" @click="closeClick(index)" v-show="mouseIndex===index">
+                <p>{{index + 1}}. {{item}} </p>
+            </div>
+            <div id="statis">
+                <p id="left-statis">{{dataArr.length}} left</p>
+                <p id="clear" @click="clearClick"> clear </p>
+            </div>
+
+            <!-- <p> {{debugInfo}} </p> -->
+
+        </div>
+
+        <footer>
+            <img src="http://www.itheima.com/images/logo.png">
+        </footer>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        var tmpVar = new Vue({
+            el: "#app",
+            data: {
+                dataArr:["吃饭", "睡觉", "打豆豆"],
+                inputVal:null,
+                mouseIndex:-1,
+                debugInfo : "这是一条debug info"
+            },
+            methods: {
+                inputEnter : function(){
+                    console.log("点击 inputEnter 的键 \t" + this.inputVal);
+                    this.dataArr.push(this.inputVal);
+                    
+                    this.inputVal = null;
+                },
+                closeClick : function(index){
+                    console.log("点击 closeClick \t" + index);
+                    this.dataArr.splice(index, 1);
+                },
+                clearClick : function(){
+                    console.log("点击 clearClick");
+                    this.dataArr.splice(0);
+                },
+                mouseOver : function(index){
+                    this.mouseIndex = index;
+                    // console.log(" 鼠标移动到 " + index + "\t 的位置");
+                    // this.debugInfo=" 鼠标移动到 " + index + "\t 的位置";
+                },
+                mouseOut : function(index){
+                    console.log(" 鼠标out " + index + "\t 的位置");
+                    if (this.mouseIndex === index){
+                        this.mouseIndex = -1;
+                    }
+                    this.debugInfo=this.debugInfo + " 鼠标out " + index + "\t 的位置";
+                }
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

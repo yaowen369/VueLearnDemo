@@ -1,0 +1,74 @@
+body {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 1px red dashed;
+    
+}
+
+
+#all-content{
+    width: 100%;
+    background-color: bisque;
+}
+
+#app {
+    width: 100%;
+    background-color: white;
+}
+
+header {
+    text-align: center;
+    
+}
+
+footer {
+    text-align: center;
+    clear: both;
+}
+
+input[type="text"] {
+    width: calc(100% - 2px);
+    border: none;
+    margin: 10px 0px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border-bottom: 1px gray solid;
+}
+
+#itemContent{
+    border-bottom: 1px blue solid;
+}
+
+#itemContent img {
+    float: right;
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+}
+
+#app li {
+    border-bottom: 1px gray solid;
+}
+
+#statis {
+    position: relative;
+    border-top: 1px gray solid;
+}
+
+#left-statis {
+    display: inline;
+    margin-left: 5px;
+}
+
+/**
+ * TODO 这个clear 如果用 absolute 或者 relative, 那又如何?
+ */ 
+#clear{
+    float: right;
+    margin-top: 0px;
+    display: inline;
+    margin-right: 5px;
+}
