@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="text/css" rel="stylesheet" href="./css/css_weather_forecast.css">
+    <title>天气预报</title>
+
+
+
+</head>
+
+<body>
+
+    <div id="weather">
+        <h2>天知道</h2>
+        <div id="city-area">
+            <div id="input">
+                <input type="text" placeholder="请输入你想查询的城市">
+                <button id="search">搜索</button>
+            </div>
+
+            <ul id="common-city">
+                <li>北京</li>
+                <li>上海</li>
+                <li>广州</li>
+                <li>深圳</li>
+            </ul>
+        </div>
+
+        <div id="tableContainer">
+            <div id="tableRow">
+                <div v-for="(item, index) in weatherInfo" class="tableWeather">
+                    <!-- 这个用作 占位线 -->
+                    <div id="weatherInfoLine" v-show="index < weatherInfo.length-1"></div>
+
+                    <h3> {{ weatherInfo[index].weather }} </h3>
+                    <P id="temperature"> {{ weatherInfo[index].temperature }} </P>
+                    <P id="date"> {{ weatherInfo[index].date }} </P>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+
+        var tmpVar = new Vue({
+            el: "#weather",
+            data: {
+                weatherInfo: [
+                    {
+                        weather: "多云",
+                        temperature: "低温 -17C-25C",
+                        date: "11日星期五"
+                    },
+                    {
+                        weather: "多云",
+                        temperature: "低温 -17C-25C",
+                        date: "11日星期五"
+                    },
+                    {
+                        weather: "多云",
+                        temperature: "低温 -17C-25C",
+                        date: "11日星期五"
+                    },
+                    {
+                        weather: "多云",
+                        temperature: "低温 -17C-25C",
+                        date: "11日星期五"
+                    },
+                    {
+                        weather: "多云",
+                        temperature: "低温 -17C-25C",
+                        date: "11日星期五"
+                    }
+
+                ],
+            }
+        })
+
+    </script>
+</body>
+
+</html>

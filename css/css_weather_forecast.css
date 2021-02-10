@@ -1,0 +1,94 @@
+#weather {
+    width: 800px;
+    margin: auto;
+    font-size: 16px;
+    background-color: #ffff0010;
+}
+
+h2{
+    text-align: center;
+    font-size: 200%;
+}
+
+#city-area {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#input {
+    height: 35px;
+    font-size: 0px;
+}
+
+#input input[type="text"]{
+    height: 100%;
+    width: 90%;
+    border: 1px blue solid;
+    outline: none;
+    padding: 1px 2px;
+}
+
+#search {
+    height: calc(100% + 4px);
+    width: calc(10% - 6px);
+    margin: 0px;
+    border: none;
+}
+
+#common-city {
+    margin: 0px;
+    margin-top: 5px;
+    padding: 0px;
+}
+
+#common-city li{
+    display: inline-block;
+    margin: 0px 10px;
+}
+
+#common-city li:first-child{
+    margin-left: 0px;
+}
+
+#tableContainer {
+    width: 100%;
+    display: table;
+}
+
+#tableRow {
+    display: table-row;
+}
+
+.tableWeather {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+
+#weatherInfoLine {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    margin-top: -50px;
+    width: 1px;
+    height: 100px;
+    background-color: #134769;
+}
+
+.tableWeather h3{
+    font-size: 150%;
+}
+
+.tableWeather h3, #temperature{
+    color: #994d0e;
+}
+
+#temperature {
+    font-size: 85%;
+}
+
+#date {
+    font-size: 90%;
+    color: #0e0101;
+}
